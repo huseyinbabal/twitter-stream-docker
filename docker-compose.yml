@@ -1,0 +1,16 @@
+version: '2'
+services: 
+    kafka: 
+        image: spotify/kafka
+        ports:
+            - "9092:9092"
+            - "2181:2181"
+    redis:
+        image: redis
+        ports:
+            - "6379:6379"
+    consumer:
+        build: kafka-consumer/.
+        depends_on:
+            - kafka
+            - redis
