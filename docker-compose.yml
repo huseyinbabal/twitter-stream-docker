@@ -1,16 +1,44 @@
 version: '2'
-services: 
-    kafka: 
+services:
+    kafka:
+        networks:
+          - internal
         image: spotify/kafka
         ports:
             - "9092:9092"
             - "2181:2181"
+        environment:
+          - ADVERTISED_HOST=172.20.0.3
+          - ADVERTISED_PORT=9092
     redis:
+        networks:
+          - internal
         image: redis
         ports:
             - "6379:6379"
     consumer:
+        networks:
+          - internal
         build: kafka-consumer/.
         depends_on:
             - kafka
             - redis
+            - twitter_stream
+    twitter_stream:
+        networks:
+          - internal
+        build: twitter-stream/.
+        depends_on:
+          - kafka
+    ui:
+      networks:
+        - internal
+      build: ui/.
+      depends_on:
+        - kafka
+        - redis
+      ports:
+        - "3000:3000"
+networks:
+  internal:
+    driver: bridge

@@ -2,7 +2,6 @@ FROM node:5
 
 RUN mkdir /usr/src/app
 WORKDIR /usr/src/app
-COPY *.sh *.js package.json ./
+COPY start_consumer.sh *.js package.json ./
 RUN npm install
-ENTRYPOINT["start_consumer.sh"].
-
+ENTRYPOINT ["sh", "start_consumer.sh"]

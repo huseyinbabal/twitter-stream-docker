@@ -1,0 +1,15 @@
+{
+  "name": "twitter-stream",
+  "version": "1.0.0",
+  "description": "",
+  "main": "twitter-stream.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "twit": "^2.2.4",
+    "kafka-node": "^0.3.2"
+  }
+}

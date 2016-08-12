@@ -1,0 +1,15 @@
+{
+  "name": "kafka-consumer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "kafka-consumer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "kafka-node": "^0.3.2",
+    "socket.io-emitter": "*"
+  },
+  "author": "",
+  "license": "ISC"
+}
